@@ -8,9 +8,10 @@
 
 require 'faker'
 
+#Création de 10 users / découpe du nom généré par Faker::HowIMetYourMother.character avec la méthode partition (on garde avant l'espace pour le prénom, après pour le nom) // l'email prend la première lettre du nom généré + le nom @gmail.com
 10.times do
-a = Faker::HowIMetYourMother.character
-User.create(first_name: a.partition(' ').first, last_name: a.partition(' ').last, email: "#{a.downcase.chars[0]}.#{a.downcase.partition(' ').last}@gmail.com")
+  a = Faker::HowIMetYourMother.character
+  User.create(first_name: a.partition(' ').first, last_name: a.partition(' ').last, email: "#{a.downcase.chars[0]}.#{a.downcase.partition(' ').last}@gmail.com")
 end
 
 Category.create(name: "Chuck Norris")
@@ -19,38 +20,38 @@ Category.create(name: "The Big Lebowski")
 Category.create(name: "Dumb & Dumber")
 Category.create(name: "Dr Who")
 
+#Création de 10 articles avec pour titres les 30 premiers caractères du string généré aléatoirement par faker, pour contenu ce string, pour user_id un chiffre entre 1 et 10 et pour category Chuck Norris
 10.times do
- a = Faker::ChuckNorris.fact
- Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 1)
+  a = Faker::ChuckNorris.fact
+  Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 1)
 end
 
 10.times do
- a = Faker::RickAndMorty.quote
- Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 2)
+  a = Faker::RickAndMorty.quote
+  Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 2)
 end
 
 10.times do
- a = Faker::Lebowski.quote
- Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 3)
+  a = Faker::Lebowski.quote
+  Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 3)
 end
 
 10.times do
- a = Faker::DumbAndDumber.quote
- Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 4)
+  a = Faker::DumbAndDumber.quote
+  Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 4)
 end
 
 10.times do
- a = Faker::DrWho.quote
- Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 5)
+  a = Faker::DrWho.quote
+  Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 5)
 end
 
+#Création de 10 commentaires avec pour contenu un élément aléaoire de l'array a
 10.times do
-a = ['Super article', 'Wahou, je savais pas', 'Devenez riche sans effort depuis chez vous, visitez le site devenezrichesanseffortdepuischezvous.fr','Quelqu\'un peut me traduire cet article ?', 'Génial','Je vais partager cette info sur FB','Trop fun lol','Whoop whoop','Salut, qui veut échanger avec moi sur le sujet ?' ]
-Comment.create(content: a.sample, user_id: rand(1..10), article_id: rand(50) )
+  a = ['Super article', 'Wahou, je savais pas', 'Devenez riche sans effort depuis chez vous, visitez le site devenezrichesanseffortdepuischezvous.fr','Quelqu\'un peut me traduire cet article ?', 'Génial','Je vais partager cette info sur FB','Trop fun lol','Whoop whoop','Salut, qui veut échanger avec moi sur le sujet ?' ]
+  Comment.create(content: a.sample, user_id: rand(10), article_id: rand(50) )
 end
-
 
 100.times do
-Like.create(user_id: rand(10), article_id: rand(50))
+  Like.create(user_id: rand(10), article_id: rand(50))
 end
-
