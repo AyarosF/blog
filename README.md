@@ -1,24 +1,38 @@
-# README
+# The Hacking Pinterest - projet THP 25 juillet 2018
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Après avoir cloné le repo
 
-Things you may want to cover:
+Pour créer la BDD, faire :
+- `bundle install`
+- `rails db:migrate`
+- `rails db:seed`
 
-* Ruby version
+## Le contenu
 
-* System dependencies
+A été créée une base de données, avec une application rails, en utilisant la gem ActiveRecord.
 
-* Configuration
+### L'architecture
 
-* Database creation
+Dans ce super blog très très drôle nous retrouvons :
 
-* Database initialization
+- Une classe User (attributs = first_name, last_name, email)
+- Une classe Article (attributs = title, content)
+- Une classe Category (attributs = name)
+- Une classe Comment (attributs = content)
+- Une classe Like (sans attributs)
 
-* How to run the test suite
+### Les actions 
 
-* Services (job queues, cache servers, search engines, etc.)
+- Chaque utilisateur peut écrire plusieurs articles
+- Un article a forcément un auteur (un utilisateur)
+- Un article a une catégorie
+- Une catégorie peut concerner plusieurs articles
+- Un commentaire commente un article et a un auteur (un utilisateur)
+- Un article peut avoir plusieurs commentaires
+- Un like concerne un article et est fait par un utilisateur
+- Un utilisateur peut avoir plusieurs likes
+- Un article peut avoir plusieurs likes
 
-* Deployment instructions
+## La team
 
-* ...
+Ce programme est made in Strasbourg, by Soraya FRUCTUOSO, Samaneh VAEZI et Hugo PAYET avec amour ! Bonne correction les amis :kissing_heart:
