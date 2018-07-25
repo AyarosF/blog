@@ -29,7 +29,7 @@ Category.create(name: "Dumb & Dumber")
 Category.create(name: "Dr Who")
 
 10.times do
- a = Faker::RickAndMorty.quote
+ a = Faker::ChuckNorris.fact
  Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(10), category_id: 1)
 end
 
