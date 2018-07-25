@@ -5,18 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#require 'faker'
-#for i in (1..5) do
- #a = Faker::ChuckNorris.fact
- #User.create(first_name: a.partition(' ').first, last_name: a.partition(' ').last, email: "#{a.downcase.chars[0]}.#{a.downcase.partition(' ').last}@gmail.com")
- # Article.find(i)(title: a.truncate(30, separator: ' '), body: a, description: "An incredible story with Chuck Norris ", user_id: User.find_by(name: 'Hugo').id)
- #Article.where(id: 1..10).update(category_id: 1)
- 
-#Article.create(title: a.truncate(30, separator: ' '), content: a, user_id: rand(29..38), category_id: 1)
 
-#Category.create(name: "Chuck fact #{i}")
-#end
 require 'faker'
+
 10.times do
 a = Faker::HowIMetYourMother.character
 User.create(first_name: a.partition(' ').first, last_name: a.partition(' ').last, email: "#{a.downcase.chars[0]}.#{a.downcase.partition(' ').last}@gmail.com")
